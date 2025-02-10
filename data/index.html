@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Light Control Floor Plan</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Rumah Pintr</h1>
+    </div>
+    <div class="floor-plan">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="500"
+        height="500"
+        viewBox="0 0 500 500"
+      >
+        <!-- Living Room -->
+        <g id="light1" class="room" onclick="toggleLight(0)">
+          <rect
+            x="60"
+            y="60"
+            width="190"
+            height="190"
+            stroke="#00f7f7"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="155"
+            cy="155"
+            r="10"
+            stroke="#00f7f7"
+            stroke-width="2"
+            fill="none"
+          />
+          <text x="155" y="220" class="room-label" text-anchor="middle">
+            Living room
+          </text>
+        </g>
+
+        <!-- Bed Room -->
+        <g id="light2" class="room" onclick="toggleLight(1)">
+          <rect
+            x="250"
+            y="60"
+            width="190"
+            height="190"
+            stroke="#00f7f7"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="345"
+            cy="155"
+            r="10"
+            stroke="#00f7f7"
+            stroke-width="2"
+            fill="none"
+          />
+          <text x="345" y="220" class="room-label" text-anchor="middle">
+            Bed room
+          </text>
+        </g>
+
+        <!-- Terrace -->
+        <g id="light3" class="room" onclick="toggleLight(2)">
+          <rect
+            x="60"
+            y="250"
+            width="190"
+            height="190"
+            stroke="#00f7f7"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="155"
+            cy="345"
+            r="10"
+            stroke="#00f7f7"
+            stroke-width="2"
+            fill="none"
+          />
+          <text x="155" y="410" class="room-label" text-anchor="middle">
+            Terrace
+          </text>
+        </g>
+
+        <!-- Car Port -->
+        <g id="light4" class="room" onclick="toggleLight(3)">
+          <rect
+            x="250"
+            y="250"
+            width="190"
+            height="190"
+            stroke="#00f7f7"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="345"
+            cy="345"
+            r="10"
+            stroke="#00f7f7"
+            stroke-width="2"
+            fill="none"
+          />
+          <text x="345" y="410" class="room-label" text-anchor="middle">
+            Car Port
+          </text>
+        </g>
+      </svg>
+      <div class="controls">
+        <button onclick="toggleLight(0)">Living Room</button>
+        <button onclick="toggleLight(1)">Bed Room</button>
+        <button onclick="toggleLight(2)">Terrace</button>
+        <button onclick="toggleLight(3)">Car Port</button>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

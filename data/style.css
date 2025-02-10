@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: rgba(0, 0, 0, 255);
+  color: #00f7f7;
+}
+.navbar {
+  background: rgba(0, 128, 128, 0.2);
+  color: #00f7f7;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #00f7f7;
+  box-shadow: 0 0 15px rgba(0, 247, 247, 0.2);
+  text-align: center;
+}
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+}
+.floor-plan {
+  background: rgba(31, 31, 31, 255);
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 247, 247, 0.1);
+  margin: 20px;
+  border: 1px solid #00f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.controls {
+  margin: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+button {
+  padding: 8px 16px;
+  border: 1px solid #00f7f7;
+  background: rgba(0, 128, 128, 0.2);
+  color: #00f7f7;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+button:hover {
+  background: rgba(0, 247, 247, 0.2);
+  box-shadow: 0 0 15px rgba(0, 247, 247, 0.3);
+}
+.room {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.room.on rect {
+  fill: rgba(0, 247, 247, 0.15);
+}
+.room.on circle {
+  fill: #00f7f7;
+  filter: drop-shadow(0 0 8px #00f7f7);
+}
+.room-label {
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  fill: #00f7f7;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+svg {
+  filter: drop-shadow(0 0 2px rgba(0, 247, 247, 0.3));
+}
