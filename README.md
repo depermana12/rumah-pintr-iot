@@ -68,7 +68,7 @@ Serial Monitor
 
 To view the ip address of the dashboard, open serial monitor:
 
-    pio device monitor -b 11520
+    pio device monitor -b 115200
 
 ## License
 
