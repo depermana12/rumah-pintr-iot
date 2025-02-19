@@ -1,9 +1,11 @@
 #include "config.h"
+#include "device.h"
 #include "display.h"
 #include "lightController.h"
 #include "webServer.h"
 #include <Arduino.h>
 #include <WiFi.h>
+
 
 Display display;
 LightController lc;
@@ -23,6 +25,9 @@ void setup() {
     delay(1000);
     Serial.println("connecting to wifi...");
   }
+
+  DeviceInformation deviceInformation;
+  myDeviceInfo(deviceInformation);
 
   String ipAddress = WiFi.localIP().toString();
 

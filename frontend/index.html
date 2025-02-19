@@ -2,15 +2,92 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/rumah-pintr.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Rumah Pintr | Smart Home</title>
   </head>
   <body>
+    <header class="primary-header">
+      <div class="container">
+        <nav class="primary-navigation">
+          <a href="/" class="navbar-brand">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="navbar-logo"
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 0 576 512"
+              width="40px"
+              height="40px"
+            >
+              <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+              <path
+                fill="currentColor"
+                d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+              />
+            </svg>
+
+            <h1>Rumah Pintr</h1>
+          </a>
+
+          <div class="nav-wrapper">
+            <button class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <button class="theme-toggle" aria-label="Toggle theme">
+              <!-- Sun icon -->
+              <svg
+                class="sun-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+              <!-- Moon icon -->
+              <svg
+                class="moon-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            </button>
+
+            <ul>
+              <li><a href="/about">About</a></li>
+              <li>
+                <a href="#">Device</a>
+                <div class="submenu">
+                  <a href="/device/info" class="submenu-item">Info</a>
+                  <a href="/device/update" class="submenu-item">Update</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
     <div class="floor-plan">
       <svg
-        width="720"
-        height="678"
+        viewBox="0 0 720 678"
+        width="100%"
+        height="100%"
         version="1.1"
         id="svg1"
         xml:space="preserve"
@@ -122,14 +199,8 @@
           />
         </g>
       </svg>
-      <div class="controls">
-        <button data-room="livingroom">Living Room</button>
-        <button data-room="bathroom">Bathroom</button>
-        <button data-room="bedroom1">Bedroom 1</button>
-        <button data-room="bedroom2">Bedroom 2</button>
-        <button data-room="terrace">Terrace</button>
-        <button data-room="carport">Car Port</button>
-      </div>
+
+      <div id="light-controls"></div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
