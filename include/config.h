@@ -7,6 +7,9 @@
 #define TERRACE 18
 #define CAR_PORT 19
 
+#define DHT_PIN 4
+#define DHT_TYPE DHT22
+
 const int NUM_LIGHTS = 6;
 
 struct LightPinConfig {
