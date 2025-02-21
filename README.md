@@ -4,7 +4,7 @@ Rumah Pintar - IoT is an ESP32-based IoT project designed to create a miniature 
 
 demo: https://youtube.com/shorts/e5fqOuCafQ4?feature=share
 
-![Rumah pintr IoT](https://imgur.com/s8s5gi1h.jpg)
+![Rumah pintr IoT](https://i.imgur.com/NEZ7DcOh.jpg)
 
 ## Hardware Requirements
 
