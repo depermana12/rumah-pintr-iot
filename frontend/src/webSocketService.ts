@@ -1,10 +1,22 @@
 import configs from "./configs";
 
+interface BaseMessage {
+  type: string;
+  [key: string]: string | number;
+}
+
+interface WeatherData extends BaseMessage {
+  temperature: number;
+  humidity: number;
+  type: string;
+}
+
 class WebSocketService {
   private ws!: WebSocket;
   private onOpenCb: Array<() => void> = [];
   private onCloseCb: Array<() => void> = [];
   private onErrorCb: Array<(error: Event) => void> = [];
+  private onDataCb: Array<(data: WeatherData) => void> = [];
   private reconnectAttempts = 0;
   private maxReconnectAttempts = 3;
   private backOffDelay = 3000;
@@ -23,6 +35,25 @@ class WebSocketService {
       this.onOpenCb.forEach((cb) => cb());
     };
 
+    this.ws.onmessage = (event) => {
+      try {
+        const data: BaseMessage = JSON.parse(event.data);
+        console.log("received message type: ", event.type);
+
+        switch (data.type) {
+          case "weather":
+            const weatherData = data as WeatherData;
+            this.updateWeatherData(weatherData);
+            this.onDataCb.forEach((cb) => cb(weatherData));
+            break;
+          default:
+            console.log("unknown message");
+        }
+      } catch (error) {
+        console.error("error parsing message data:", error);
+      }
+    };
+
     this.ws.onclose = (event) => {
       console.log("disconnected, check esp32 connection");
       this.onCloseCb.forEach((cb) => cb());
@@ -36,6 +67,17 @@ class WebSocketService {
       console.log("websocket error", error);
       this.onErrorCb.forEach((cb) => cb(error));
     };
+  }
+
+  private updateWeatherData(data: WeatherData): void {
+    const dhtValue = (id: string, value: number, unit: string) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      (el.querySelector("tspan") ?? el).textContent = `${value}${unit}`;
+    };
+    dhtValue("temperature-value", data.temperature, "°C");
+    dhtValue("humidity-value", data.humidity, "%");
   }
 
   private attemptReconnect() {
@@ -74,6 +116,10 @@ class WebSocketService {
     if (this.ws.readyState === WebSocket.OPEN) {
       cb();
     }
+  }
+
+  public onData(cb: (data: WeatherData) => void): void {
+    this.onDataCb.push(cb);
   }
 
   public onClose(cb: () => void): void {
