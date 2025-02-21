@@ -62,3 +62,5 @@ void WebServer::setupWebSocket() {
 };
 
 void WebServer::handleClients() { ws.cleanupClients(); };
+
+void WebServer::sendText(const String &jsonMsg) { ws.textAll(jsonMsg.c_str()); }

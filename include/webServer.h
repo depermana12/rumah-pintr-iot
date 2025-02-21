@@ -9,6 +9,7 @@ public:
   WebServer(LightController &lightcontroller);
   void init();
   void handleClients();
+  void sendText(const String &jsonMsg);
 
 private:
   AsyncWebServer server;

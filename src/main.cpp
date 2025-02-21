@@ -2,12 +2,13 @@
 #include "device.h"
 #include "display.h"
 #include "lightController.h"
+#include "weather.h"
 #include "webServer.h"
 #include <Arduino.h>
 #include <WiFi.h>
 
-
 Display display;
+Weather weather;
 LightController lc;
 WebServer webServer(lc);
 
@@ -16,6 +17,8 @@ void setup() {
 
   display.init();
   display.printMessage("initializing...");
+
+  weather.begin();
 
   lc.init();
 
@@ -39,4 +42,7 @@ void setup() {
   webServer.init();
 }
 
-void loop() { webServer.handleClients(); }
+void loop() {
+  webServer.handleClients();
+  weather.sendWeatherData(webServer);
+}
