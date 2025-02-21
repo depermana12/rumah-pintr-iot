@@ -7,24 +7,28 @@ const initializeHamburgerMenu = () => {
     ".primary-navigation ul",
   ) as HTMLElement;
 
-  const navItems = document.querySelectorAll(".primary-navigation li");
+  document.querySelector(".nav-wrapper")?.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
 
-  hamburger.addEventListener("click", () => {
-    const isActive = navMenu.classList.toggle("active");
-    hamburger.classList.toggle("active", isActive);
-  });
+    // handle hamburger
+    if (
+      target.classList.contains("hamburger") ||
+      target.closest(".hamburger")
+    ) {
+      const isActive = navMenu.classList.toggle("active");
+      hamburger.classList.toggle("active", isActive);
+      return;
+    }
 
-  document.querySelectorAll(".primary-navigation li a").forEach((link) => {
-    const item = link.closest("li")!;
-    const hasSubmenu = item.querySelector(".submenu");
+    // handle toggling menu mobile
+    if (target.tagName === "A" && window.innerWidth <= 768) {
+      const parentLi = target.closest("li") as HTMLElement;
+      const hasSubmenu = parentLi.querySelector(".submenu");
 
-    if (hasSubmenu) {
-      link.addEventListener("click", (e) => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          item.classList.toggle("active");
-        }
-      });
+      if (hasSubmenu) {
+        e.preventDefault();
+        parentLi.classList.toggle("active");
+      }
     }
   });
 
@@ -33,7 +37,9 @@ const initializeHamburgerMenu = () => {
     if (!hamburger.contains(target) && !navMenu.contains(target)) {
       hamburger.classList.remove("active");
       navMenu.classList.remove("active");
-      navItems.forEach((item) => item.classList.remove("active"));
+      document.querySelectorAll(".primary-navigation li").forEach((li) => {
+        li.classList.remove("active");
+      });
     }
   });
 
@@ -45,13 +51,12 @@ const initializeHamburgerMenu = () => {
   if (savedTheme) {
     document.documentElement.setAttribute("data-theme", savedTheme);
   } else {
-    // Check system preference
-    const systemPrefersDark = window.matchMedia(
+    const systemPrefers = window.matchMedia(
       "(prefers-color-scheme: dark)",
     ).matches;
     document.documentElement.setAttribute(
       "data-theme",
-      systemPrefersDark ? "dark" : "light",
+      systemPrefers ? "dark" : "light",
     );
   }
 
