@@ -283,7 +283,6 @@
     align-items: center;
   }
 
-  /* Logo and title */
   .navbar-brand {
     display: flex;
     align-items: center;
@@ -302,7 +301,6 @@
     height: 32px;
   }
 
-  /* Navigation menu */
   .nav-wrapper {
     display: flex;
     align-items: center;
@@ -337,8 +335,7 @@
     color: var(--text-accent-primary);
   }
 
-  /* Submenu */
-  .submenu {
+  .primary-navigation ul .submenu {
     display: none;
     position: absolute;
     top: 100%;
@@ -349,13 +346,21 @@
     min-width: 150px;
     padding: 0.5rem 0;
     z-index: 400;
+    list-style-type: none;
+    flex-direction: column;
   }
 
   .primary-navigation li:hover .submenu {
     display: block;
   }
 
-  .submenu-item {
+  .submenu li {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .submenu li a {
     display: block;
     padding: 0.5rem 1rem;
     color: var(--text-primary);
@@ -363,12 +368,11 @@
     transition: background-color var(--transition-fast);
   }
 
-  .submenu-item:hover {
+  .submenu li a:hover {
     background-color: var(--background-primary);
     color: var(--text-accent-primary);
   }
 
-  /* Theme toggle */
   .theme-toggle {
     background: none;
     border: none;
@@ -406,7 +410,6 @@
     display: none;
   }
 
-  /* Hamburger menu */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -425,7 +428,6 @@
     transition: var(--transition-normal);
   }
 
-  /* Mobile styles */
   @media (max-width: 768px) {
     .hamburger {
       display: flex;
@@ -453,7 +455,7 @@
       display: block;
       padding: 0.5rem 0;
     }
-    .submenu {
+    .primary-navigation ul .submenu {
       position: static;
       display: none;
       box-shadow: none;
@@ -467,11 +469,10 @@
     .primary-navigation li.active .submenu {
       display: block;
     }
-    .submenu-item {
+    .submenu li a {
       padding-left: 2rem;
     }
 
-    /* Hamburger animation */
     .hamburger.active span:nth-child(1) {
       transform: translateY(8px) rotate(45deg);
     }
@@ -511,8 +512,9 @@
 }
 
 .floor-plan svg {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
+  margin: 0 auto;
 }
 
 #light-controls {
@@ -632,6 +634,20 @@
 
 .slider:disabled {
   cursor: not-allowed;
+}
+
+#weather-icon {
+  fill: var(--text-accent-primary);
+}
+
+#weather-label {
+  fill: var(--text-primary);
+  font-family: var(--ff-heading);
+}
+#humidity-value,
+#temperature-value {
+  fill: var(--text-primary);
+  font-family: var(--ff-heading);
 }
 
 @media (max-width: 950px) {

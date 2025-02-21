@@ -72,10 +72,10 @@
               <li><a href="/about">About</a></li>
               <li>
                 <a href="#">Device</a>
-                <div class="submenu">
-                  <a href="/device/info" class="submenu-item">Info</a>
-                  <a href="/device/update" class="submenu-item">Update</a>
-                </div>
+                <ul class="submenu">
+                  <li><a href="/device/info">Info</a></li>
+                  <li><a href="/device/update">Update</a></li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -105,7 +105,6 @@
             y="11.502"
           />
         </g>
-        <!-- Floor plan layers -->
         <g id="livingroom" class="room-light">
           <path
             style="fill: #333; fill-opacity: 0.79941"
@@ -153,7 +152,6 @@
             id="light-carport"
           />
         </g>
-
         <g id="lamp-icons">
           <circle
             class="lamp-icon"
@@ -197,6 +195,56 @@
             cy="416.234"
             r="10.944"
           />
+        </g>
+        <g id="temperature" transform="translate(20.96 55.364) scale(.03131)">
+          <path
+            d="M288.373-183.876q-75.53 0-128.77-53.24-53.23-53.23-53.23-128.76 0-49.1 24-91.55 24-42.45 66-68.45v-286q0-38.33 26.76-65.17 26.77-26.83 65-26.83 38.24 0 65.24 26.83 27 26.84 27 65.17v286q42 26 66 68.45t24 91.55q0 75.53-53.23 128.76-53.24 53.24-128.77 53.24zm.12-59q50.88 0 86.38-35.88 35.5-35.87 35.5-87.12 0-37.81-18-70.41-18-32.59-52-47.59l-20-9v-319q0-13.6-9.2-22.8-9.2-9.2-22.8-9.2-13.6 0-22.8 9.2-9.2 9.2-9.2 22.8v319l-20 9q-34 15-52 47.59-18 32.6-18 70.41 0 51.25 35.62 87.12 35.62 35.88 86.5 35.88zm-.12-123z"
+            id="weather-icon"
+          />
+          <text
+            xml:space="preserve"
+            style="font-size: 596.174px"
+            x="628.765"
+            y="-312.847"
+            id="weather-label"
+          >
+            <tspan id="tspan2" x="628.765" y="-312.847">Temperature</tspan>
+          </text>
+          <text
+            xml:space="preserve"
+            style="font-size: 1703.35px"
+            x="511.831"
+            y="1223.91"
+            id="temperature-value"
+          >
+            <tspan id="tspan3" x="511.831" y="1223.91">-</tspan>
+          </text>
+        </g>
+        <g id="humidity" transform="matrix(.02173 0 0 .02762 20.796 123.823)">
+          <path
+            d="M517.286-210.619q20.88 0 35.38-14.62 14.5-14.62 14.5-35.5 0-20.88-14.62-35.38-14.62-14.5-35.5-14.5-20.88 0-35.38 14.62-14.5 14.62-14.5 35.5 0 20.88 14.62 35.38 14.62 14.5 35.5 14.5zm-202.12-6 246-246-42-42-246 246zm2.12-194q20.88 0 35.38-14.62 14.5-14.62 14.5-35.5 0-20.88-14.62-35.38-14.62-14.5-35.5-14.5-20.88 0-35.38 14.62-14.5 14.62-14.5 35.5 0 20.88 14.62 35.38 14.62 14.5 35.5 14.5zm99.88 370q-137 0-228.5-94t-91.5-234q0-100 79.5-217.5t240.5-254.5q161 137 240.5 254.5t79.5 217.5q0 140-91.5 234t-228.5 94zm0-60q112 0 186-76.5t74-191.82q0-78.68-66.5-179.18t-193.5-212.5q-127 112-193.5 212.5t-66.5 179.18q0 115.32 74 191.82t186 76.5zm0-340z"
+            id="weather-icon"
+          />
+          <text
+            xml:space="preserve"
+            style="font-size: 761.959px"
+            x="783.819"
+            y="-233.674"
+            id="weather-label"
+            transform="scale(1.12751 .8869)"
+          >
+            <tspan id="tspan1" x="783.819" y="-233.674">Humidity</tspan>
+          </text>
+          <text
+            xml:space="preserve"
+            style="font-size: 1703.35px"
+            x="506.794"
+            y="3538.161"
+            id="humidity-value"
+            transform="matrix(1.44105 0 0 1.13354 7.54 -2478.407)"
+          >
+            <tspan id="tspan3-8" x="506.794" y="3538.161">-</tspan>
+          </text>
         </g>
       </svg>
 
