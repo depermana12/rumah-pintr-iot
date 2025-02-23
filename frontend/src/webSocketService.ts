@@ -1,4 +1,5 @@
 import configs from "./configs";
+import WeatherCard from "./components/weatherCard";
 
 interface BaseMessage {
   type: string;
@@ -20,8 +21,13 @@ class WebSocketService {
   private reconnectAttempts = 0;
   private maxReconnectAttempts = 3;
   private backOffDelay = 3000;
+  private weatherCard: WeatherCard;
 
   constructor() {
+    this.weatherCard = new WeatherCard({
+      containerId: "weather-card",
+      label: "Weather Station",
+    });
     this.beginWebSocket();
   }
 
@@ -30,7 +36,7 @@ class WebSocketService {
 
     this.ws.onopen = () => {
       console.log("connection open, esp32 is ready");
-      this.maxReconnectAttempts = 0;
+      this.reconnectAttempts = 0;
 
       this.onOpenCb.forEach((cb) => cb());
     };
@@ -38,7 +44,7 @@ class WebSocketService {
     this.ws.onmessage = (event) => {
       try {
         const data: BaseMessage = JSON.parse(event.data);
-        console.log("received message type: ", event.type);
+        console.log("received message: ", data.type);
 
         switch (data.type) {
           case "weather":
@@ -70,11 +76,15 @@ class WebSocketService {
   }
 
   private updateWeatherData(data: WeatherData): void {
+    this.weatherCard.updateFromWebSocket(data);
+    console.log(data.temperature);
+
     const dhtValue = (id: string, value: number, unit: string) => {
       const el = document.getElementById(id);
       if (!el) return;
 
-      (el.querySelector("tspan") ?? el).textContent = `${value}${unit}`;
+      (el.querySelector("tspan") ?? el).textContent =
+        `${value}${unit.toLowerCase()}`;
     };
     dhtValue("temperature-value", data.temperature, "°C");
     dhtValue("humidity-value", data.humidity, "%");
