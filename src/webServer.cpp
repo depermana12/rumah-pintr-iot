@@ -12,7 +12,11 @@ void WebServer::init() {
   setupWebSocket();
 
   server.addHandler(&ws);
-  server.serveStatic("/", SPIFFS, "/").setDefaultFile("index.html");
+  server.on("/home", HTTP_GET, [](AsyncWebServerRequest *request) {
+    request->send(SPIFFS, "/index.html", "text/html");
+  });
+  server.serveStatic("/", SPIFFS, "/");
+  // .setDefaultFile("index.html");
   server.begin();
 };
 

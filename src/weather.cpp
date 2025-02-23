@@ -18,9 +18,9 @@ void Weather::sendWeatherData(WebServer &webSocket) {
       return;
     }
 
-    StaticJsonDocument<64> doc;
+    JsonDocument doc;
     doc["type"] = "weather";
-    doc["temperture"] = temp;
+    doc["temperature"] = temp;
     doc["humidity"] = hum;
 
     String jsonMsg;

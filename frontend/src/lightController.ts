@@ -11,7 +11,6 @@ class LightController {
   private cardBuilder: LightCardBuilder;
 
   constructor() {
-    // Initialize services
     this.webSocketService = new WebSocketService();
     this.stateManager = new LightStateManager();
     this.lightUi = new LightUI();
@@ -31,7 +30,7 @@ class LightController {
       return;
     }
 
-    // Create light cards for each room
+    // create light cards for each room
     Object.entries(configs.rooms).forEach(([roomName, config]) => {
       console.log(`creating card for room: ${roomName}`, config);
       const card = this.cardBuilder.createLightCard(roomName, config as any);

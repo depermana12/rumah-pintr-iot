@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "bunx --bun vite --port 3000",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rm -r ../data",
+    "clean-build": "bun run clean && bun run build"
   },
   "devDependencies": {
     "typescript": "~5.6.2",
