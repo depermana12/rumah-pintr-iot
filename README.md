@@ -1,6 +1,8 @@
 # Rumah Pintr
 
-Rumah Pintar - IoT is an ESP32-based IoT project designed to create a miniature smart home system. This project uses the ESP32 microcontroller to connect home appliances, enables remote control (e.g., turning lights on/off)
+Rumah Pintar - IoT is an ESP32-based IoT project designed to create a miniature smart home system. This project uses the ESP32 microcontroller to connect home appliances, enables remote control (e.g., turning lights on/off).
+
+It utilizes AsyncWebServer and WebSocket for real-time updates. The frontend is built using Vanilla TypeScript and CSS for lightweight and efficient performance
 
 demo: https://youtube.com/shorts/e5fqOuCafQ4?feature=share
 
@@ -22,6 +24,8 @@ demo: https://youtube.com/shorts/e5fqOuCafQ4?feature=share
 
     PlatformIO Core (for cli)
 
+    Bun
+
 ## Getting Started
 
 ### Installation
@@ -33,7 +37,7 @@ If you haven't installed PlatformIO Core, run:
 
 Clone the Repository
 
-    git clone https://github.com/depermana12/rumah-pintar-iot.git
+    git clone https://github.com/depermana12/rumah-pintr-iot.git
 
     cd rumah-pintar-iot
 
@@ -52,7 +56,13 @@ Set Up Wi-Fi Credentials
 
 ### Building and Uploading
 
-Compile the project:
+Build the Frontend:
+
+    cd frontend
+
+    bun run build
+
+Compile the firmware:
 
     pio run
 
