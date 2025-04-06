@@ -4,7 +4,7 @@ Rumah Pintar - IoT is an ESP32-based IoT project designed to create a miniature 
 
 It utilizes AsyncWebServer and WebSocket for real-time updates. The frontend is built using Vanilla TypeScript and CSS for lightweight and efficient performance
 
-demo: https://youtube.com/shorts/e5fqOuCafQ4?feature=share
+demo: https://youtu.be/pYWgJYC5gIM
 
 ![Rumah pintr IoT](https://i.imgur.com/NEZ7DcOh.jpg)
 
